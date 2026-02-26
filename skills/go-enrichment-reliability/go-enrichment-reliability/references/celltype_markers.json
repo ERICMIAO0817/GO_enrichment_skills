@@ -1,0 +1,162 @@
+{
+  "human": {
+    "t_cell": {
+      "display_name": "T cell",
+      "aliases": ["cd4 t cell", "cd8 t cell", "lymphocyte"],
+      "markers": ["CD3D", "CD3E", "CD3G", "TRBC1", "TRBC2", "IL7R", "CCR7", "LTB", "MALAT1", "TRAC"],
+      "keywords": ["t cell", "lymphocyte activation", "adaptive immune", "antigen receptor", "alpha-beta t cell", "interleukin-2"]
+    },
+    "cytotoxic_nk": {
+      "display_name": "Cytotoxic T/NK",
+      "aliases": ["nk cell", "natural killer", "cytotoxic lymphocyte"],
+      "markers": ["NKG7", "PRF1", "GZMB", "GNLY", "CTSW", "KLRD1", "TYROBP", "FCGR3A", "XCL1", "XCL2"],
+      "keywords": ["natural killer", "cytolysis", "granzyme", "interferon-gamma", "positive regulation of cytotoxicity", "defense response to virus"]
+    },
+    "b_cell": {
+      "display_name": "B cell",
+      "aliases": ["naive b", "memory b", "b lymphocyte"],
+      "markers": ["CD79A", "CD79B", "MS4A1", "CD74", "CD37", "CD19", "HLA-DRA", "BANK1", "CD22", "BLK"],
+      "keywords": ["b cell", "humoral immune", "immunoglobulin production", "antigen processing and presentation", "mature b cell differentiation"]
+    },
+    "plasma_cell": {
+      "display_name": "Plasma cell",
+      "aliases": ["antibody secreting cell", "asc"],
+      "markers": ["MZB1", "JCHAIN", "SDC1", "XBP1", "PRDM1", "DERL3", "IGKC", "IGHG1", "TNFRSF17", "SLAMF7"],
+      "keywords": ["antibody secretion", "protein folding in endoplasmic reticulum", "immunoglobulin complex", "unfolded protein response", "plasma cell differentiation"]
+    },
+    "beta_cell": {
+      "display_name": "Beta cell",
+      "aliases": ["beta cell", "beta-cell", "pancreatic beta cell", "islet beta cell", "insulin secreting cell", "β cell", "β细胞"],
+      "markers": ["INS", "INS1", "INS2", "IAPP", "PDX1", "NKX6-1", "MAFA", "PCSK1", "PCSK2", "SLC2A2"],
+      "keywords": ["insulin secretion", "glucose homeostasis", "regulation of insulin secretion", "peptide hormone secretion", "endocrine pancreas development", "response to endoplasmic reticulum stress", "unfolded protein response"]
+    },
+    "alpha_cell": {
+      "display_name": "Alpha cell",
+      "aliases": ["alpha cell", "alpha-cell", "pancreatic alpha cell", "islet alpha cell", "glucagon secreting cell", "α cell", "α细胞"],
+      "markers": ["GCG", "ARX", "MAFB", "TTR", "IRX1", "IRX2", "LOXL4", "SLC38A5", "PCSK2", "GC"],
+      "keywords": ["glucagon secretion", "regulation of glucagon secretion", "peptide hormone secretion", "glucose homeostasis", "endocrine pancreas development", "hormone secretion"]
+    },
+    "monocyte": {
+      "display_name": "Monocyte",
+      "aliases": ["classical monocyte", "inflammatory monocyte"],
+      "markers": ["LST1", "FCN1", "CTSS", "S100A8", "S100A9", "LILRB1", "TYMP", "LGALS3", "FCER1G", "LYZ"],
+      "keywords": ["inflammatory response", "response to lipopolysaccharide", "myeloid leukocyte activation", "cytokine production", "innate immune response"]
+    },
+    "macrophage": {
+      "display_name": "Macrophage",
+      "aliases": ["tissue macrophage", "phagocyte"],
+      "markers": ["C1QA", "C1QB", "C1QC", "APOE", "CSF1R", "CD68", "MRC1", "MSR1", "TREM2", "CTSD"],
+      "keywords": ["phagocytosis", "response to bacterium", "complement activation", "regulation of inflammatory response", "toll-like receptor signaling pathway"]
+    },
+    "dendritic_cell": {
+      "display_name": "Dendritic cell",
+      "aliases": ["dc", "antigen presenting cell"],
+      "markers": ["FCER1A", "CLEC10A", "CD1C", "IRF8", "BATF3", "ITGAX", "LILRA4", "GZMB", "CCR7", "HLA-DPA1"],
+      "keywords": ["antigen processing and presentation", "dendritic cell activation", "type i interferon signaling pathway", "t cell activation", "response to virus"]
+    },
+    "neutrophil": {
+      "display_name": "Neutrophil",
+      "aliases": ["pmn", "granulocyte"],
+      "markers": ["FCGR3B", "CSF3R", "CXCR2", "MPO", "ELANE", "LTF", "S100A8", "S100A9", "CEACAM8", "MMP8"],
+      "keywords": ["neutrophil activation", "neutrophil degranulation", "response to bacterium", "chemotaxis", "acute inflammatory response"]
+    },
+    "endothelial_cell": {
+      "display_name": "Endothelial cell",
+      "aliases": ["vascular endothelial", "blood vessel"],
+      "markers": ["PECAM1", "VWF", "KDR", "EMCN", "RAMP2", "CLDN5", "ESAM", "FLT1", "ENG", "KLF2"],
+      "keywords": ["angiogenesis", "blood vessel development", "vasculature development", "endothelial cell migration", "regulation of blood pressure"]
+    },
+    "fibroblast": {
+      "display_name": "Fibroblast",
+      "aliases": ["stromal cell", "mesenchymal"],
+      "markers": ["COL1A1", "COL1A2", "COL3A1", "DCN", "LUM", "TAGLN", "ACTA2", "PDGFRB", "THY1", "FAP"],
+      "keywords": ["extracellular matrix organization", "collagen fibril organization", "wound healing", "cell-substrate adhesion", "connective tissue development"]
+    },
+    "epithelial_cell": {
+      "display_name": "Epithelial cell",
+      "aliases": ["epithelium"],
+      "markers": ["EPCAM", "KRT8", "KRT18", "KRT19", "KRT17", "MSLN", "CLDN4", "MUC1", "KRT14", "KRT5"],
+      "keywords": ["epithelial cell differentiation", "epithelium development", "keratinization", "cell junction organization", "barrier establishment"]
+    },
+    "mast_cell": {
+      "display_name": "Mast cell",
+      "aliases": ["mast"],
+      "markers": ["KIT", "TPSAB1", "CPA3", "HDC", "MS4A2", "GATA2", "HPGDS", "IL1RL1", "RGS13", "SIGLEC6"],
+      "keywords": ["mast cell activation", "histamine secretion", "anaphylaxis", "immune effector process", "response to allergen"]
+    }
+  },
+  "mouse": {
+    "t_cell": {
+      "display_name": "T cell",
+      "aliases": ["cd4 t cell", "cd8 t cell", "lymphocyte"],
+      "markers": ["CD3D", "CD3E", "CD3G", "TRBC1", "TRBC2", "IL7R", "CCR7", "LTB", "TRAC", "MALAT1"],
+      "keywords": ["t cell", "lymphocyte activation", "adaptive immune", "antigen receptor", "alpha-beta t cell", "interleukin-2"]
+    },
+    "cytotoxic_nk": {
+      "display_name": "Cytotoxic T/NK",
+      "aliases": ["nk cell", "natural killer", "cytotoxic lymphocyte"],
+      "markers": ["NKG7", "PRF1", "GZMB", "GNLY", "CTSW", "KLRD1", "TYROBP", "FCGR3A", "XCL1", "XCL2"],
+      "keywords": ["natural killer", "cytolysis", "granzyme", "interferon-gamma", "positive regulation of cytotoxicity", "defense response to virus"]
+    },
+    "b_cell": {
+      "display_name": "B cell",
+      "aliases": ["naive b", "memory b", "b lymphocyte"],
+      "markers": ["CD79A", "CD79B", "MS4A1", "CD74", "CD37", "CD19", "H2-AA", "BANK1", "CD22", "BLK"],
+      "keywords": ["b cell", "humoral immune", "immunoglobulin production", "antigen processing and presentation", "mature b cell differentiation"]
+    },
+    "beta_cell": {
+      "display_name": "Beta cell",
+      "aliases": ["beta cell", "beta-cell", "pancreatic beta cell", "islet beta cell", "insulin secreting cell", "β cell", "β细胞"],
+      "markers": ["INS1", "INS2", "IAPP", "PDX1", "NKX6-1", "MAFA", "PCSK1", "PCSK2", "SLC2A2", "ISL1"],
+      "keywords": ["insulin secretion", "glucose homeostasis", "regulation of insulin secretion", "peptide hormone secretion", "endocrine pancreas development", "response to endoplasmic reticulum stress", "unfolded protein response"]
+    },
+    "alpha_cell": {
+      "display_name": "Alpha cell",
+      "aliases": ["alpha cell", "alpha-cell", "pancreatic alpha cell", "islet alpha cell", "glucagon secreting cell", "α cell", "α细胞"],
+      "markers": ["GCG", "ARX", "MAFB", "TTR", "IRX1", "IRX2", "SLC38A5", "PCSK2", "LOXL4", "GC"],
+      "keywords": ["glucagon secretion", "regulation of glucagon secretion", "peptide hormone secretion", "glucose homeostasis", "endocrine pancreas development", "hormone secretion"]
+    },
+    "monocyte": {
+      "display_name": "Monocyte",
+      "aliases": ["classical monocyte", "inflammatory monocyte"],
+      "markers": ["LST1", "FCN1", "CTSS", "S100A8", "S100A9", "LILRB1", "TYMP", "LGALS3", "FCER1G", "LYZ2"],
+      "keywords": ["inflammatory response", "response to lipopolysaccharide", "myeloid leukocyte activation", "cytokine production", "innate immune response"]
+    },
+    "macrophage": {
+      "display_name": "Macrophage",
+      "aliases": ["tissue macrophage", "phagocyte"],
+      "markers": ["C1QA", "C1QB", "C1QC", "APOE", "CSF1R", "CD68", "MRC1", "MSR1", "TREM2", "CTSD"],
+      "keywords": ["phagocytosis", "response to bacterium", "complement activation", "regulation of inflammatory response", "toll-like receptor signaling pathway"]
+    },
+    "dendritic_cell": {
+      "display_name": "Dendritic cell",
+      "aliases": ["dc", "antigen presenting cell"],
+      "markers": ["FCER1A", "CLEC10A", "CD1C", "IRF8", "BATF3", "ITGAX", "SIGLECH", "GZMB", "CCR7", "H2-DPA1"],
+      "keywords": ["antigen processing and presentation", "dendritic cell activation", "type i interferon signaling pathway", "t cell activation", "response to virus"]
+    },
+    "neutrophil": {
+      "display_name": "Neutrophil",
+      "aliases": ["pmn", "granulocyte"],
+      "markers": ["FCGR3", "CSF3R", "CXCR2", "MPO", "ELANE", "LTF", "S100A8", "S100A9", "CEACAM8", "MMP8"],
+      "keywords": ["neutrophil activation", "neutrophil degranulation", "response to bacterium", "chemotaxis", "acute inflammatory response"]
+    },
+    "endothelial_cell": {
+      "display_name": "Endothelial cell",
+      "aliases": ["vascular endothelial", "blood vessel"],
+      "markers": ["PECAM1", "VWF", "KDR", "EMCN", "RAMP2", "CLDN5", "ESAM", "FLT1", "ENG", "KLF2"],
+      "keywords": ["angiogenesis", "blood vessel development", "vasculature development", "endothelial cell migration", "regulation of blood pressure"]
+    },
+    "fibroblast": {
+      "display_name": "Fibroblast",
+      "aliases": ["stromal cell", "mesenchymal"],
+      "markers": ["COL1A1", "COL1A2", "COL3A1", "DCN", "LUM", "TAGLN", "ACTA2", "PDGFRB", "THY1", "FAP"],
+      "keywords": ["extracellular matrix organization", "collagen fibril organization", "wound healing", "cell-substrate adhesion", "connective tissue development"]
+    },
+    "epithelial_cell": {
+      "display_name": "Epithelial cell",
+      "aliases": ["epithelium"],
+      "markers": ["EPCAM", "KRT8", "KRT18", "KRT19", "KRT17", "MSLN", "CLDN4", "MUC1", "KRT14", "KRT5"],
+      "keywords": ["epithelial cell differentiation", "epithelium development", "keratinization", "cell junction organization", "barrier establishment"]
+    }
+  }
+}

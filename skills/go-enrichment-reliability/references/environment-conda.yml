@@ -1,0 +1,21 @@
+name: go-enrichment-reliability
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - r-base>=4.3
+  - r-essentials
+  - bioconductor-clusterprofiler
+  - bioconductor-annotationdbi
+  - bioconductor-org.hs.eg.db
+  - bioconductor-org.mm.eg.db
+  - pandas
+  - matplotlib
+  - requests
+  - pip:
+      - gseapy
+      - gprofiler-official
+      - mygene

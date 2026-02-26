@@ -1,0 +1,19 @@
+{
+  "name": "go-enrichment-skills",
+  "skills": "skills",
+  "description": "GO/GSEA enrichment skills bundle (1 skill)",
+  "version": "1.0.0",
+  "author": {
+    "name": "Eric Mac"
+  },
+  "homepage": "https://github.com/ericmac/GO_enrichment_skills",
+  "repository": "https://github.com/ericmac/GO_enrichment_skills",
+  "license": "MIT",
+  "keywords": [
+    "bioinformatics",
+    "gene-ontology",
+    "gsea",
+    "go-enrichment",
+    "cell-type"
+  ]
+}

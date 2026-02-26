@@ -1,0 +1,4 @@
+interface:
+  display_name: "GO Enrichment Reliability"
+  short_description: "Conversation-first reliable GO/GSEA analysis with cell-type interpretation"
+  default_prompt: "Use $go-enrichment-reliability as a natural-language analysis copilot: parse user intent, run reliable GO/GSEA automatically, report consistency, and provide interpretable cell-type-focused conclusions with follow-up discussion prompts."

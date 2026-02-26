@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# R
+.Rhistory
+.RData
+
+# Local env / temp
+.tmp/
+.venv/
+venv/
+
+# Generated outputs
+runs/
+logs/
+benchmarks/logs/
+skills/go-enrichment-reliability/scripts/runs/

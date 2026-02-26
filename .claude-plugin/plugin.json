@@ -1,0 +1,8 @@
+{
+  "name": "go-enrichment-skills",
+  "version": "1.0.0",
+  "description": "GO/GSEA enrichment skills bundle (1 skill)",
+  "author": {
+    "name": "Eric Mac"
+  }
+}

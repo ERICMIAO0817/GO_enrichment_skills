@@ -1,0 +1,14 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "go-enrichment-skills",
+  "owner": {
+    "name": "Eric Mac"
+  },
+  "plugins": [
+    {
+      "name": "go-enrichment-reliability",
+      "source": "./skills/go-enrichment-reliability",
+      "description": "Natural-language-first GO/GSEA copilot that auto-runs reliability-checked enrichment (Python-first, R fallback), benchmarks against Enrichr/g:Profiler/clusterProfiler/Broad proxy, and returns interpretable cell-type-focused conclusions with follow-up discussion prompts."
+    }
+  ]
+}
