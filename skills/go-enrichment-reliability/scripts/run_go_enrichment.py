@@ -41,6 +41,13 @@ ONTOLOGY_SOURCE_MAP = {
     "CC": "GO:CC",
 }
 
+ONTOLOGY_COLORS = {
+    "BP": "#4C78A8",
+    "CC": "#54A24B",
+    "MF": "#F58518",
+    "UNKNOWN": "#9E9E9E",
+}
+
 THREAD_ENV_VARS = [
     "OMP_NUM_THREADS",
     "OPENBLAS_NUM_THREADS",
@@ -392,6 +399,8 @@ def create_plots(ora_rows: List[dict], outdir: Path, plot_fallback_rows: Optiona
 
     try:
         import matplotlib.pyplot as plt  # type: ignore
+        from matplotlib.lines import Line2D  # type: ignore
+        from matplotlib.patches import Patch  # type: ignore
 
         source_rows = ora_rows if ora_rows else (plot_fallback_rows or [])
         top = sorted(
@@ -408,26 +417,57 @@ def create_plots(ora_rows: List[dict], outdir: Path, plot_fallback_rows: Optiona
         x_vals = []
         y_vals = []
         sizes = []
+        ontologies = []
         for row in top:
             padj = float(row.get("padj") or 1.0)
             hits = float(row.get("gene_hits") or 1)
+            ont = str(row.get("ontology") or "").strip().upper()
+            if ont.startswith("GO:"):
+                ont = ont[3:]
+            if ont not in {"BP", "CC", "MF"}:
+                ont = "UNKNOWN"
             x_vals.append(-math.log10(max(padj, 1e-300)))
             y_vals.append(hits)
             sizes.append(max(hits * 12.0, 20.0))
+            ontologies.append(ont)
+
+        point_colors = [ONTOLOGY_COLORS.get(ont, ONTOLOGY_COLORS["UNKNOWN"]) for ont in ontologies]
+        ontology_order = ["BP", "CC", "MF", "UNKNOWN"]
+        present_ontologies = [ont for ont in ontology_order if ont in set(ontologies)]
+        label_map = {"BP": "BP", "CC": "CC", "MF": "MF", "UNKNOWN": "Other"}
 
         plt.figure(figsize=(8, 5))
-        plt.scatter(x_vals, y_vals, s=sizes, alpha=0.7)
+        plt.scatter(x_vals, y_vals, s=sizes, alpha=0.78, c=point_colors, edgecolors="#1F2D3D", linewidths=0.6)
         plt.xlabel("-log10(FDR)")
         plt.ylabel("Gene hits")
         plt.title("GO Enrichment Dotplot")
+        if present_ontologies:
+            handles = [
+                Line2D(
+                    [0],
+                    [0],
+                    marker="o",
+                    linestyle="",
+                    markerfacecolor=ONTOLOGY_COLORS[ont],
+                    markeredgecolor="#1F2D3D",
+                    markersize=8,
+                    label=label_map[ont],
+                )
+                for ont in present_ontologies
+            ]
+            plt.legend(handles=handles, title="Ontology", frameon=False, loc="best")
         plt.tight_layout()
         plt.savefig(dot_path, dpi=180)
         plt.close()
 
+        bar_colors = [ONTOLOGY_COLORS.get(ont, ONTOLOGY_COLORS["UNKNOWN"]) for ont in ontologies[::-1]]
         plt.figure(figsize=(9, 5))
-        plt.barh(names[::-1], x_vals[::-1])
+        plt.barh(names[::-1], x_vals[::-1], color=bar_colors)
         plt.xlabel("-log10(FDR)")
         plt.title("GO Enrichment Top Terms")
+        if present_ontologies:
+            handles = [Patch(facecolor=ONTOLOGY_COLORS[ont], label=label_map[ont]) for ont in present_ontologies]
+            plt.legend(handles=handles, title="Ontology", frameon=False, loc="best")
         plt.tight_layout()
         plt.savefig(bar_path, dpi=180)
         plt.close()
@@ -472,6 +512,7 @@ def _ora_rows_for_plot_from_csv(path: Path, sig_threshold: float) -> tuple[List[
             "term_name": term_name,
             "padj": _safe_float(padj, 1.0),
             "gene_hits": _safe_float(gene_hits, 1.0),
+            "ontology": str(row.get("ontology") or row.get("ONTOLOGY") or "").strip(),
         }
         all_rows.append(plot_row)
         if plot_row["padj"] <= sig_threshold:

@@ -74,42 +74,72 @@ render_ora_plots <- function(ora_df, dotplot_out = NULL, barplot_out = NULL) {
   x <- -log10(pmax(top_df$padj_num, 1e-300))
   hits <- top_df$hits_num
   labels <- substr(as.character(top_df$term_name), 1, 48)
+  ontology <- toupper(trimws(as.character(top_df$ontology)))
+  ontology <- sub("^GO:", "", ontology)
+  ontology[!(ontology %in% c("BP", "CC", "MF"))] <- "UNKNOWN"
+  ontology_palette <- c(BP = "#4C78A8", CC = "#54A24B", MF = "#F58518", UNKNOWN = "#9E9E9E")
+  ontology_labels <- c(BP = "BP", CC = "CC", MF = "MF", UNKNOWN = "Other")
+  point_fill <- unname(ontology_palette[ontology])
+  legend_order <- c("BP", "CC", "MF", "UNKNOWN")
+  present_ontology <- legend_order[legend_order %in% unique(ontology)]
 
   if (has_dot) {
     dir.create(dirname(dotplot_out), recursive = TRUE, showWarnings = FALSE)
     png(filename = dotplot_out, width = 1440, height = 900, res = 180)
-    par(mar = c(5, 5, 4, 2))
+    par(mar = c(5, 5, 4, 8), xpd = NA)
     cex_vals <- pmax(0.8, pmin(3.0, sqrt(hits)))
     plot(
       x,
       hits,
       pch = 21,
-      bg = "#4C78A8",
+      bg = point_fill,
       col = "#1F2D3D",
       cex = cex_vals,
       xlab = "-log10(FDR)",
       ylab = "Gene hits",
       main = "GO Enrichment Dotplot"
     )
+    if (length(present_ontology) > 0) {
+      legend(
+        "topright",
+        inset = c(-0.24, 0),
+        legend = ontology_labels[present_ontology],
+        pt.bg = ontology_palette[present_ontology],
+        pch = 21,
+        title = "Ontology",
+        bty = "n",
+        pt.cex = 1.2
+      )
+    }
     dev.off()
   }
 
   if (has_bar) {
     dir.create(dirname(barplot_out), recursive = TRUE, showWarnings = FALSE)
     png(filename = barplot_out, width = 1620, height = 900, res = 180)
-    par(mar = c(5, 16, 4, 2))
+    par(mar = c(5, 16, 4, 8), xpd = NA)
     idx <- rev(seq_len(nrow(top_df)))
     barplot(
       x[idx],
       names.arg = labels[idx],
       horiz = TRUE,
       las = 1,
-      col = "#4C78A8",
+      col = point_fill[idx],
       border = NA,
       xlab = "-log10(FDR)",
       main = "GO Enrichment Top Terms",
       cex.names = 0.7
     )
+    if (length(present_ontology) > 0) {
+      legend(
+        "topright",
+        inset = c(-0.24, 0),
+        legend = ontology_labels[present_ontology],
+        fill = ontology_palette[present_ontology],
+        title = "Ontology",
+        bty = "n"
+      )
+    }
     dev.off()
   }
 
